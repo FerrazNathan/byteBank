@@ -3,10 +3,22 @@ import { render, screen } from '@testing-library/react'
 import App from './App'
 
 describe('Componente principal', () => {
-  it('Mostrar o nome do banco', () => {
+  describe('Quando eu abro o App do Banco', () => {
 
-    render(<App />);
+    it('o nome do banco deve ser exibido', () => {
+      render(<App />);
 
-    expect(screen.getByText('ByteBank')).toBeInTheDocument();
+      expect(screen.getByText('ByteBank')).toBeInTheDocument()
+    })
+    it('o saldo deve ser exibido', () => {
+      render(<App />)
+
+      expect(screen.getByText('Saldo:')).toBeInTheDocument()
+    })
+    it('o botão de transação deve ser exibido', () => {
+      render(<App />)
+
+      expect(screen.getByText('Realizar operação')).toBeInTheDocument()
+    })
   })
 })
