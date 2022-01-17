@@ -1,6 +1,17 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Conta from "./Conta"
+
+describe('Quando eu renderizo o Componente de conta', () => {
+
+  it('Exibir o saldo da conta como valor monetário', () => {
+    render(<Conta saldo={1000} />)
+
+    const saldo = screen.getByTestId('saldo-conta')
+
+    expect(saldo.textContent).toBe('R$ 1000')
+  })
+})
 
 describe('Quando eu renderizo o Componente de conta', () => {
   
@@ -16,3 +27,5 @@ describe('Quando eu renderizo o Componente de conta', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 })
+
+// Link da cocumentação do testing library: https://testing-library.com/docs/queries/about/#queries
