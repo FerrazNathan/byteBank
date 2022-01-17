@@ -27,3 +27,5 @@ describe('Quando eu renderizo o Componente de conta', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 })
+
+// Link da cocumentação do testing library: https://testing-library.com/docs/queries/about/#queries
